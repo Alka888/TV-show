@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+	* { background-color:bisque;
+	}
+</style>
+</head>
+
+<body>
+	<center>
+			{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		<form action="/addshow" method='post'>
+			{% csrf_token %}
+			<h3>Add a New Show</h3><br><br>
+			Title: <input type="text" name="title"><br><br>
+			Network: <input type="text" name="network"><br><br>
+			Description: <input type="text" name="desc" placeholder="Description"><br><br>
+			Release Date: <input type="date" name="release_date" placeholder="Data"><br>
+			<br>
+			<input type="submit" value="Create">
+		</form>
+		<a href="/">Go Back</a>
+	</center>
+</body>
+
+</html>

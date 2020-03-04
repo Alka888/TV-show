@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		table, th, td {
+			border: 1px solid brown;
+			border-collapse: black;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>All Shows</h1>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Title</th>
+				<th scope="col">Network</th>
+				<th scope="col">Release Date</th>
+				<th scope="col">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for each_show in Tvshow %}
+			<tr>
+				<td>{{each_show.id}}</td>
+				<td>{{each_show.title}}</td>
+				<td>{{each_show.network}}</td>
+				<td>{{each_show.release_date}}</td>
+				<td><a href="/show/{{each_show.id}}">Show</a> |
+				
+				 <a href="/show/{{each_show.id}}/edit">Edit</a> |
+				
+				 <a href="/delete_show/{{each_show.id}}">Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		<a href="/">Add a New Show</a>
+		</tbody>
+	</table>
+
+</body>
+
+</html>
